@@ -35,3 +35,8 @@ exports.author_delete_post = asyncHandler(async (req, res, next) => {
 exports.author_update_get = asyncHandler(async (req, res, next) => {
   res.send("NOT IMPLEMENTED: Author update GET");
 });
+
+// Handling Author update on POST
+exports.author_update_post = asyncHandler(async (req, res, next) => {
+  res.send("NOT IMPLEMENTED: Author update POST");
+});
