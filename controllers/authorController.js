@@ -16,3 +16,7 @@ exports.author_create_get = asyncHandler(async (req, res, next) => {
   res.send("NOT IMPLEMENTED: Author create GET");
 });
 
+// Handling author creation on POST
+exports.author_create_post = asyncHandler(async (req, res, next) => {
+  res.send("NOT IMPLEMENTED: Author create POST");
+});
