@@ -25,3 +25,8 @@ exports.author_create_post = asyncHandler(async (req, res, next) => {
 exports.author_delete_get = asyncHandler(async (req, res, next) => {
   res.send("NOT IMPLEMENTED: Author delete GET");
 });
+
+// Handling Author deletion on POST
+exports.author_delte_post = asyncHandler(async (req, res, next) => {
+  res.send("NOT IMPLEMENTED: Author delete POST");
+});
