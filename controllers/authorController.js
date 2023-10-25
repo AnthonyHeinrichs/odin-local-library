@@ -10,3 +10,9 @@ exports.author_list = asyncHandler(async (req, res, next) => {
 exports.author_detail = asyncHandler(async (req, res, next) => {
   res.send(`NOT IMPLEMENTED: Author Detail: ${req.params.id}`);
 });
+
+// Displaying Author create form on Get 
+exports.author_create_get = asyncHandler(async (req, res, next) => {
+  res.send("NOT IMPLEMENTED: Author create GET");
+});
+
