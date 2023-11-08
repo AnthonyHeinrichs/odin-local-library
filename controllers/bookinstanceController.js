@@ -43,7 +43,7 @@ exports.bookinstance_create_get = asyncHandler(async (req, res, next) => {
 
 // Handle BookInstance create on POST.
 exports.bookinstance_create_post = [
-  // Validating and sanitizing our fields
+  // Validate and sanitize fields.
   body("book", "Book must be specified").trim().isLength({ min: 1 }).escape(),
   body("imprint", "Imprint must be specified")
     .trim()
@@ -55,15 +55,16 @@ exports.bookinstance_create_post = [
     .isISO8601()
     .toDate(),
 
-  // Processing the request after validation & sanitization
+  // Process request after validation and sanitization.
   asyncHandler(async (req, res, next) => {
-    const errors = validationResults(req);
-    
+    const errors = validationResult(req);
+
+    // Create a BookInstance object with escaped and trimmed data.
     const bookInstance = new BookInstance({
       book: req.body.book,
       imprint: req.body.imprint,
       status: req.body.status,
-      due_back: req.body.due_back
+      due_back: req.body.due_back,
     });
 
     if (!errors.isEmpty()) {
