@@ -5,7 +5,10 @@ block content
 
   if book_instances.length
 
-    p #[strong Delete the following book instances before attempting to delete this author.]
+    p 
+      | Delete the following #[strong #{book_instances.length}] 
+      | #[strong book instance#{book_instances.length > 1 ? 's' : ''}]
+      | before attempting to delete this author.
 
     div(style='margin-left:20px;margin-top:20px')
 
@@ -14,7 +17,8 @@ block content
       dl
       each val in book_instances
         hr
-        #{val.status}
+        p #[strong Id: ]
+          a(href=val.url) #{val._id}
 
   else
     p Do you really want to delete this book?
