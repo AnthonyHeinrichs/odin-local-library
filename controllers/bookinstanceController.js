@@ -36,7 +36,7 @@ exports.bookinstance_create_get = asyncHandler(async (req, res, next) => {
   const allBooks = await Book.find({}, "title").exec();
 
   res.render("bookinstance_form", {
-    title: "Create BookInstance",
+    title: "Create Book Instance",
     book_list: allBooks,
   });
 });
@@ -108,18 +108,12 @@ exports.bookinstance_delete_post = asyncHandler(async (req, res, next) => {
 
 // Display BookInstance update form on GET.
 exports.bookinstance_update_get = asyncHandler(async (req, res, next) => {
-  const bookInstance = await BookInstance.findByID(req.params.id).exec()
-
-  if (bookInstance === null) {
-    const err = new Error("Book instance not found");
-    err.status = 404;
-    return next(err)
-  }
+  const allBooks = await Book.find({}, "title").exec();
 
   res.render("bookinstance_form", {
-    title: "Update Book Instance",
-    bookInstance: bookInstance
-  })
+    title: "Create Book Instance",
+    book_list: allBooks,
+  });
 });
 
 // Handle bookinstance update on POST.
