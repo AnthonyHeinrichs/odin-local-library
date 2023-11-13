@@ -108,11 +108,15 @@ exports.bookinstance_delete_post = asyncHandler(async (req, res, next) => {
 
 // Display BookInstance update form on GET.
 exports.bookinstance_update_get = asyncHandler(async (req, res, next) => {
-  const allBooks = await Book.find({}, "title").exec();
+  const [bookInstance, allBooks] = await Promise.all ([
+    BookInstance.findById(req.params.id).exec(),
+    Book.find({}, "title").exec(),
+  ])
 
   res.render("bookinstance_form", {
     title: "Create Book Instance",
     book_list: allBooks,
+    bookinstance: bookInstance,
   });
 });
 
